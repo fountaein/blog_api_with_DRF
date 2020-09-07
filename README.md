@@ -9,9 +9,9 @@ Building a Blog REST API using django restframework
 
 ### - 🌱 To work with this project ...
 - Set up virtual env and install virtual env
-> `python 3 -m venv env` 
-> `source env/bin/activate` 
-> `pip install -r requirements.txt`
+> - `python 3 -m venv env` 
+> - `source env/bin/activate` 
+> - `pip install -r requirements.txt`
 
 
 
