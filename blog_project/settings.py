@@ -42,8 +42,11 @@ INSTALLED_APPS = [
      # 3rd rest framework
     "rest_framework", 
     "rest_framework.authtoken",
+
     #cors setting
     "corsheaders",  
+    #django r3eset password
+    'django_rest_passwordreset',
 
     #django-allauth and django-rest-auth
     'rest_auth',
@@ -157,7 +160,8 @@ ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'account_confirm_complet
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
 ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 # 1 day in seconds
 OLD_PASSWORD_FIELD_ENABLED = True
-
+ACCOUNT_LOGIN_ON_PASSWORD_RESET=True
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE=True
 
 
 SITE_ID = 1
