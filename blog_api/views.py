@@ -1,9 +1,23 @@
 
 
-from rest_framework import generics , permissions
+from rest_framework import generics, permissions, status
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+
+from .permissions import IsAuthorOrReadOnly
+
 from.models import Post, Category
 from.serializers import PostSerializer , CategorySerializer
-from .permissions import IsAuthorOrReadOnly
+
+
+
+@api_view()
+def redirection_view(request):
+    return Response(status=status.HTTP_400_BAD_REQUEST)
+
+@api_view()
+def success_view(request):
+    return Response("Email account is activated")
 
 class PostListView(generics.ListCreateAPIView):
     # permission_classes=(permissions.IsAuthenticatedOrReadOnly,)
