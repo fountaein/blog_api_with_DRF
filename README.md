@@ -2,9 +2,9 @@
 ### 🔭 A Django REST API guide.
 Building a Blog REST API using django restframework
 
-> - Basic CRUD actions and Writing tests( **tutorial coming soon on my blog**)
+> - Basic CRUD actions ( **tutorial coming soon on my blog**)
 > - Permissions and User Authentication  ( **tutorial coming soon on my blog**)
-> - Viewsets and Routers.  ( **tutorial coming soon on my blog**)
+> - Writing Tests.  ( **tutorial coming soon on my blog**)
 > - Deploying to  Heroku ( **tutorial coming soon on my blog**)
 
 ### - 🌱 To work with this project ...
