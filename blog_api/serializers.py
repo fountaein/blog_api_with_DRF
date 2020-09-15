@@ -12,8 +12,10 @@ class PostSerializer(serializers.ModelSerializer):
             "created",
             "category",
             "status",
+            "slug",
         )
         model = Post
+
 
 
 
