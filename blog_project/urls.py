@@ -60,15 +60,15 @@ urlpatterns = [
     path("api/v1/rest-auth/", include("rest_auth.urls")),
     path("api/v1/rest-auth/registration/", include("rest_auth.registration.urls")),
     url(
-        r"^accounts-rest/registration/account-confirm-email/(?P<key>.+)/$",
+        r"^api/v1/accounts-rest/registration/account-confirm-email/(?P<key>.+)/$",
         confirm_email,
         name="account_confirm_email",
     ),
     url(
-        r"^registration/complete/$", views.success_view, name="account_confirm_complete"
+        r"^api/v1/registration/complete/$", views.success_view, name="account_confirm_complete"
     ),
     url(
-        r"^api/password_reset/",
+        r"^api/v1/password_reset/",
         include("django_rest_passwordreset.urls", namespace="password_reset"),
     ),
     path('docs/', include_docs_urls(title=API_TITLE,description=API_DESCRIPTION)),
