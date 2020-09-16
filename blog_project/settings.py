@@ -37,24 +37,24 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'django.contrib.sites',
-
-     # 3rd rest framework
-    "rest_framework", 
+    "django.contrib.sites",
+    # 3rd rest framework
+    "rest_framework",
     "rest_framework.authtoken",
-
-    #cors setting
-    "corsheaders",  
-    #django r3eset password
-    'django_rest_passwordreset',
-
-    #django-allauth and django-rest-auth
-    'rest_auth',
-    'rest_auth.registration',
-    'allauth', 
-    'allauth.account', 
-    'allauth.socialaccount', 
-    #local app
+    # swagger
+    # "rest_framework_swagger",
+    'drf_yasg',
+    # cors setting
+    "corsheaders",
+    # django reset password
+    "django_rest_passwordreset",
+    # django-allauth and django-rest-auth
+    "rest_auth",
+    "rest_auth.registration",
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    # local app
     "blog_api.apps.BlogApiConfig",
 ]
 
@@ -152,23 +152,25 @@ STATIC_URL = "/static/"
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
-ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = 'account_confirm_complete'
-ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = 'account_confirm_complete'
+ACCOUNT_EMAIL_CONFIRMATION_ANONYMOUS_REDIRECT_URL = "account_confirm_complete"
+ACCOUNT_EMAIL_CONFIRMATION_AUTHENTICATED_REDIRECT_URL = "account_confirm_complete"
 ACCOUNT_LOGIN_ATTEMPTS_LIMIT = 5
-ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400 # 1 day in seconds
+ACCOUNT_LOGIN_ATTEMPTS_TIMEOUT = 86400  # 1 day in seconds
 OLD_PASSWORD_FIELD_ENABLED = True
-ACCOUNT_LOGIN_ON_PASSWORD_RESET=True
-ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE=True
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 
 
 SITE_ID = 1
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-EMAIL_HOST = 'smtp.sendgrid.net'
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = 'sendgrid_password'
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST_USER = "apikey"
+EMAIL_HOST_PASSWORD = "sendgrid_password"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+REST_FRAMEWORK = {"DEFAULT_SCHEMA_CLASS": "rest_framework.schemas.coreapi.AutoSchema"}
+
