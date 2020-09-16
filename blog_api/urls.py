@@ -7,17 +7,15 @@ from blog_api.class_based_views import PostDetails, PostLists
 
 urlpatterns=[path('category/<int:pk>/', CategoryDetail.as_view()),
                path('category/', CategoryListView.as_view()),
-               path('post/<str:slug>/<int:pk>/', PostDetail.as_view(), name='post_detail'),
+               path('post/<str:slug>/', PostDetail.as_view(), name='post_detail'),
                path('post/', PostListView.as_view()),
 
                #FUNCTION BASED VIEWS
                 path('posts/', function_views.post_lists),
-                path('posts/<int:pk>/', function_views.post_detail),
-                path('posts/<int:pk>/', function_views.update_delete_post),
-                path('posts/', function_views.create_post),
+                path('posts/<str:slug>/', function_views.post_details),
 
                #class based views
-               path('blog_post/<int:pk>/', PostDetails.as_view(), name='post_detail'),
+               path('blog_post/<str:slug>/', PostDetails.as_view(), name='post_detail'),
                path('blog_post/', PostLists.as_view()),
                ]
 

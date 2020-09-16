@@ -7,7 +7,7 @@ from rest_framework.views import APIView
 
 
 class PostLists(APIView):
-    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    
     """
     List all posts, or create a new post.
     """
@@ -31,26 +31,27 @@ class PostDetails(APIView):
     """
     Retrieve, update or delete a post instance.
     """
-    def get_object(self, pk):
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    def get_object(self, slug):
         try:
-            return Post.objects.get(pk=pk)
+            return Post.objects.get(slug=slug)
         except Post.DoesNotExist:
             raise Http404
 
-    def get(self, request, pk, format=None):
-        post = self.get_object(pk)
+    def get(self, request, slug, format=None):
+        post = self.get_object(slug)
         serializer = PostSerializer(post)
         return Response(serializer.data)
 
-    def put(self, request, pk, format=None):
-        post = self.get_object(pk)
+    def put(self, request, slug, format=None):
+        post = self.get_object(slug)
         serializer = PostSerializer(post, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-    def delete(self, request, pk, format=None):
-        post = self.get_object(pk)
+    def delete(self, request, slug, format=None):
+        post = self.get_object(slug)
         post.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
